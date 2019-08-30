@@ -42,8 +42,13 @@ public class ProofServiceTest {
         verify(nameKeyValueDao, times(1)).addAll(anyList());
     }
 
+    @Test(expected = AssertionError.class)
     public void addBAdKey() throws Exception {
+        when(nameKeyValueDao.addAll(Mockito.anyList())).thenReturn(new ArrayList<NameKeyValueEntity>());
+        proofService.addKeyValue("cars", "carengine", Stream.of("EV", "HYBRID").collect(Collectors.toSet()), "electric motor");
 
     }
+
+
 
 }
