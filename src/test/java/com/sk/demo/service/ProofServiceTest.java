@@ -42,6 +42,8 @@ public class ProofServiceTest {
         verify(nameKeyValueDao, times(1)).addAll(anyList());
     }
 
-    public void addBAdKey() throws
+    public void addBAdKey() throws Exception {
+
+    }
 
 }
