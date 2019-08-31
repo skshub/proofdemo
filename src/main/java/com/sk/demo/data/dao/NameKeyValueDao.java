@@ -26,5 +26,5 @@ public interface NameKeyValueDao {
      * @param key
      * @return
      */
-    List<NameKeyValueEntity> getAll(NameKeyValueKey key);
+    List<NameKeyValueEntity> getAll(List<NameKeyValueKey> key);
 }

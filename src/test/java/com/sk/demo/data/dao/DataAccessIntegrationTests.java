@@ -54,11 +54,7 @@ public class DataAccessIntegrationTests {
     }
 
 
-    /*
-    The test will create multiple records in the sane request and then retrieve one of the records.
-     */
-    @Test
-    public void testMultipleWrite() {
+    private List<NameKeyValueEntity> populateData() {
         //tag and value for engine
         String[][] engine = new String[][]{{"EV", "electric motor"}, {"HYBRID", "electric motor"}, {"GAS", "internal combustion engine"}, {"DIESEL", "internal combustion engine"}};
         //tag for body
@@ -79,8 +75,16 @@ public class DataAccessIntegrationTests {
             entity.setValue(body[i][1]);
             entities.add(entity);
         }
+        return entities;
+    }
+    /*
+    The test will create multiple records in the sane request and then retrieve one of the records.
+     */
+    @Test
+    public void testMultipleWrite() {
 
-        nameKeyValueDao.addAll(entities);
+
+        nameKeyValueDao.addAll(populateData());
 
         // fetch values and verify
 
@@ -93,5 +97,6 @@ public class DataAccessIntegrationTests {
         reEntity = nameKeyValueDao.get(lookKey);
         Assert.assertEquals("The values in the db for tag DIESEL do not match","internal combustion engine", reEntity.getValue());
     }
+
 
 }

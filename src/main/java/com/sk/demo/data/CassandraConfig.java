@@ -1,6 +1,6 @@
 package com.sk.demo.data;
 
-import com.sk.demo.ProofProperties;
+import com.sk.demo.ProofConstants;
 import com.sk.demo.data.dao.NameKeyValueDao;
 import com.sk.demo.data.dao.NameKeyValueDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,18 +25,18 @@ public class CassandraConfig extends AbstractCassandraConfiguration{
 
     @Override
     protected String getKeyspaceName() {
-        return environment.getProperty(ProofProperties.KEYSPACE, ProofProperties.DEFAULT_KEYSPACE);
+        return environment.getProperty(ProofConstants.KEYSPACE, ProofConstants.DEFAULT_KEYSPACE);
     }
 
     @Override
     protected String getContactPoints() {
         return environment
-                .getProperty(ProofProperties.CONTACTPOINTS, CassandraClusterFactoryBean.DEFAULT_CONTACT_POINTS);
+                .getProperty(ProofConstants.CONTACTPOINTS, CassandraClusterFactoryBean.DEFAULT_CONTACT_POINTS);
     }
 
     @Override
     protected int getPort() {
-        return Integer.parseInt(environment.getProperty(ProofProperties.PORT, ProofProperties.DEFAULT_PORT));
+        return Integer.parseInt(environment.getProperty(ProofConstants.PORT, ProofConstants.DEFAULT_PORT));
     }
 
     @Override

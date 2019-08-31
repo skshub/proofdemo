@@ -10,22 +10,14 @@ import java.util.Objects;
 @PrimaryKeyClass
 public class NameKeyValueKey implements Serializable{
 
-    /*
-  Column names
-   */
-    public static final String NAME = "name";
-    public static final String NAME_OBJECT = "object";
-    public static final String OBJECT_KEY = "nameObject";
-    public static final String TAG = "tag";
-
 
     @PrimaryKeyColumn(ordinal = 0, type = PrimaryKeyType.PARTITIONED, name = "name")
     private String name;
 
-    @PrimaryKeyColumn(ordinal = 1, type = PrimaryKeyType.PARTITIONED, name = "nameObject")
+    @PrimaryKeyColumn(ordinal = 1, type = PrimaryKeyType.PARTITIONED, name = "objectName")
     private String nameObject;
 
-    @PrimaryKeyColumn(ordinal = 2, type = PrimaryKeyType.CLUSTERED, name = "objectKey")
+    @PrimaryKeyColumn(ordinal = 2, type = PrimaryKeyType.PARTITIONED, name = "objectKey")
     private String objectKey;
 
     @PrimaryKeyColumn(ordinal = 3, type = PrimaryKeyType.CLUSTERED, name = "tag")

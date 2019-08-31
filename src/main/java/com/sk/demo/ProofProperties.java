@@ -1,21 +1,27 @@
 package com.sk.demo;
 
-public interface ProofProperties {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 
-    /**
-     * Constant String for Keyspace
-     */
-      String KEYSPACE = "cassandra.keyspace-name";
-      String DEFAULT_KEYSPACE = "proof";
+import java.util.HashMap;
+import java.util.Map;
 
-    /**
-     * Constant String for ContactPoints
-     */
-      String CONTACTPOINTS = "cassandra.contactpoints";
-    /**
-     * Constant String for Port
-     */
-      String PORT = "cassandra.port";
-      String DEFAULT_PORT = "9042";
+public class ProofProperties {
 
+    private Map<String, String[]> priority = new HashMap<>();
+
+
+    @Autowired
+    private Environment env;
+
+    String DEFAULT_KEY = "notFount:notfound";
+    public String[] getPriority(String propertyKey){
+        if(priority.containsKey(propertyKey)) {
+            priority.get(propertyKey);
+        } else {
+
+        }
+        String defaultVal = env.getProperty(propertyKey, DEFAULT_KEY);
+        return defaultVal.split("[:]");
+    }
 }

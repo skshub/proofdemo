@@ -13,10 +13,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.verify;
@@ -61,7 +58,7 @@ public class NameKeyValueDaoTest {
                 return new ArrayList<NameKeyValueEntity>(0).iterator();
             }
         });
-        Assert.assertTrue(nameKeyValueDao.getAll(new NameKeyValueKey("name", "object", "key", "tag")).size() == 0);
+        Assert.assertTrue(nameKeyValueDao.getAll(Arrays.asList(new NameKeyValueKey("name", "object", "key", "tag"))).size() == 0);
 
     }
 

@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /*
@@ -35,11 +34,10 @@ public class NameKeyValueDaoImpl implements NameKeyValueDao{
     }
 
     @Override
-    public List<NameKeyValueEntity> getAll(NameKeyValueKey key) {
+    public List<NameKeyValueEntity> getAll(List<NameKeyValueKey> key) {
         logger.info("Fetching all values");
-        Iterable<NameKeyValueKey> ids = Arrays.asList(key);
         List<NameKeyValueEntity> list = new ArrayList<>();
-        repository.findAllById(ids).forEach(list::add);
+        repository.findAllById(key).forEach(list::add);
         return list;
     }
 }
