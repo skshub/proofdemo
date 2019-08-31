@@ -56,6 +56,7 @@ AND objectkey = ? AND tag = ?;
 ##### Service implemented using
 - Spring boot
 - Jersey
+- spring-data-cassandra
 ##### datastore
 - cassandra
 
