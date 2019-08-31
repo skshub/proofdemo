@@ -64,3 +64,11 @@ AND objectkey = ? AND tag = ?;
 #### Know issues:
 - The curl XPUT is getting filtered out by the spings internal filter. 
 Tested with POSTMAN client
+
+
+### Running the server
+- Clone the code
+- execute from the command line 
+`./mvnw spring-boot:run`
+
+#### Note: To run this locally you need cassandra installed. Working on getting cassandra Dockerized.
