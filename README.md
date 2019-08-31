@@ -71,4 +71,9 @@ Tested with POSTMAN client
 - execute from the command line 
 `./mvnw spring-boot:run`
 
-#### Note: To run this locally you need cassandra installed. Working on getting cassandra Dockerized.
+#### Note: To run this locally you need cassandra installed. 
+
+#### Improvements Needed:
+- Getting cassandra Dockerized.
+- Externalizing the order of precedence of tags to a property file. Currenlty hard coded to `car.engine -> car.body`
+
